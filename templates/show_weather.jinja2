@@ -1,0 +1,17 @@
+{% extends 'base.jinja2' %}
+
+{% block subtitle %}Weather for regions {% endblock subtitle %}
+
+{% block content %}
+
+<ul>
+    {% for place,info in weathers.items() %}
+        <li><b>{{ place }}</b> | Temp: {{ info['temp'] }} F | Wind Speed: {{ info['wind_speed'] }} kts | <b>{{ info['weather_main'] }}</b>, <b>{{ info['weather_description'] }}</b></li>
+    {% endfor %}
+</ul>
+<ul>
+    {% for buoy,info in buoy_info.items() %}
+        <li><b>{{ buoy }}</b> | Atmo_Temp: <b>{{ info['atmo_temp'] }}</b> F | Water temp: <b>{{ info['water_temp'] }}</b> F | Wind Speed: <b>{{ info['wind_speed'] }}</b> kts | Wind Direction: <b>{{ info['wind_dir'] }}</b> - <b>{{ info['wind_dir_cardinal'] }}</b></li>
+    {% endfor %}
+</ul>
+{% endblock content %}
